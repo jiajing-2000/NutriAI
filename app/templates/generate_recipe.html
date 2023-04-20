@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Meal Recommendations</h1>
+    <form method="post" action="{{ url_for('generate_recipe') }}">
+      <div class="form-group">
+        <label for="diet">Diet:</label>
+        <input type="text" class="form-control" id="diet" name="diet" placeholder="e.g. vegetarian">
+      </div>
+      <div class="form-group">
+        <label for="food_preferences">Food Preferences:</label>
+        <input type="text" class="form-control" id="food_preferences" name="food_preferences" placeholder="e.g. Italian cuisine">
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Get Meal Ideas">
+      </div>
+    </form>
+    {% if meal_ideas %}
+      <hr class="my-4">
+      <h2>Generated Meal Recommendations:</h2>
+      <ul class="list-group">
+        {% for meal in meal_ideas %}
+          <li class="list-group-item">{{ meal }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    
+{% endblock %}

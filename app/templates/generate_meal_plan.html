@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Meal Planning</h1>
+  <form method="post">
+    <div class="form-group">
+    <label for="meal_type">Meal Type:</label>
+    <select class="form-control" name="meal_type" id="meal_type" required>
+      <option value="breakfast">breakfast</option>
+      <option value="lunch">lunch</option>
+      <option value="dinner">dinner</option>
+      <option value="snack">snack</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="meal_description">Meal Description:</label>
+    <input type="text" class="form-control" id="meal_description" name="meal_description" required>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Create Meal</button>
+  </div>
+  </form>
+  
+  {% if meal_plan %}
+    <hr class="my-4">
+    <h2>Your Meal Plan</h2>
+    <p class="lead"> based on your nutrient goals and dietary preferences:</p>
+    {% for meal_type, meal_idea in meal_plan.items() %}
+      <ul class="list-group">
+        {% for meal in meal_idea %}
+          <li class="list-group-item">{{ meal }}</li>
+        {% endfor %}
+    {% endfor %}
+  {% endif %}
+
+{% endblock %}

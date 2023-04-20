@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1 class="display-4">NutriAI</h1>
+    <p class="lead">Welcome to NutriAI, your personalized nutrition recommendation system. We help you achieve your health goals by providing customized meal plans and nutrition tips based on your unique lifestyle and preferences.</p>
+    <hr class="my-4">
+    <p>Register or log in to get started with NutriAI today!</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button">Register</a>
+      <a class="btn btn-secondary btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
+    </p>
+  </div>
+{% endblock %}

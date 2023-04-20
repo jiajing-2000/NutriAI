@@ -271,10 +271,10 @@ def generate_meal_plan():
     return render_template('generate_meal_plan.html', meal_plan=meal_plan)
 
 
-@app.route('/progress_tracking')
-@login_required
-def progress_tracking():
-    return render_template('progress_tracking.html')
+# @app.route('/progress_tracking')
+# @login_required
+# def progress_tracking():
+#     return render_template('progress_tracking.html')
 
 
 def generate_meal_ideas(diet, food_preferences):
